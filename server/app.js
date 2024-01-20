@@ -11,16 +11,30 @@ app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 
 //Create
-app.post('/insert', (request,response) => {
-    //Stub
+app.post('/insert/school', (request, response) => {
+    const { name } = request.body;
+    const db = dbService.getDbServiceInstance();
+    
+    const result = db.insertNewSchool(name);
+
+    result
+    .then(data => response.json({ data: data}))
+    .catch(err => console.log(err));
 });
+
+
+
 
 //Read
 app.get('/getAll', (request, response) => {
     const db = dbService.getDbServiceInstance();
 
     const result = db.getData("SELECT * FROM Teacher;");
+
+    result.then(data => response.json({data : data})).catch(err => console.log(err));
 });
+
+
 
 //Update
 app.patch('/update', (request, response) => {
