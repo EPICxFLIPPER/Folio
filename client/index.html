@@ -8,6 +8,8 @@
 </head>
 <body>
     <main>
+        <button id="add-school-btn">Add School</button>
+        <input type="text" id="name-input">
         <table id="school-table">
             <thead>
                 <th>SchoolId</th>
@@ -15,6 +17,7 @@
             </thead>
             <tbody id="school-body"></tbody>
         </table>
+        <button id="add-teacher-btn">Add Teacher</button>
         <table id="teacher-table">
             <thead>
                 <th>TeacherId</th>
@@ -23,7 +26,15 @@
             </thead>
             <tbody id="teacher-body"></tbody>
         </table>
-        <button id="add-name-btn">Add Student</button>
+        <button id="add-class-btn">Add Class</button>
+        <table id="class-table">
+            <thead>
+                <th>ClassId</th>
+                <th>TeacherId</th>
+            </thead>
+            <tbody id="class-body"></tbody>
+        </table>
+        <button id="add-student-btn">Add Student</button>
         <table id="student-table">
             <thead>
                 <th>StudentId</th>
@@ -32,7 +43,7 @@
                 <th>Weakest Subject</th>
                 <th>Strongest Subject</th>
                 <th>Absent</th>
-                <th>TeacherId</th>
+                <th>ClassId</th>
             </thead>
             <tbody id="student-body"></tbody>
         </table>
