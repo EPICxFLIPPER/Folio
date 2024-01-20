@@ -4,6 +4,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const dbService = require('./dbService');
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
@@ -13,12 +15,12 @@ app.post('/insert', (request,response) => {
     //Stub
 });
 
-
 //Read
 app.get('/getAll', (request, response) => {
-    //Stub
-});
+    const db = dbService.getDbServiceInstance();
 
+    const result = db.getAllData();
+});
 
 //Update
 app.patch('/update', (request, response) => {
@@ -29,3 +31,5 @@ app.patch('/update', (request, response) => {
 app.delete('/delete/:id', (request, response) => {
     //Stub
 });
+
+app.listen(process.env.PORT, () => console.log('app is running'));
