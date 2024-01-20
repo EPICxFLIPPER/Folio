@@ -25,3 +25,10 @@ CREATE TABLE Student (
 
 ALTER TABLE Student
 ADD absent varchar(255);
+
+CREATE TABLE Class (
+    ClassId int(11) PRIMARY KEY AUTO_INCREMENT
+);
+
+ALTER TABLE Student ADD ClassId int(11) NOT NULL;
+ALTER TABLE Student ADD CONSTRAINT fk_ClassId FOREIGN KEY (ClassId) REFERENCES Class(ClassId);
