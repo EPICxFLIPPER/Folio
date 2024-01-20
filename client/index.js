@@ -17,3 +17,24 @@ function loadHTMLTables(data) {
         studentTable.innerHTML = "<tr><td class='no-data' colspan='7'>No Data</td></tr>"
     }   
 }
+
+
+const addBtn = document.querySelector('#add-school-btn'); //TODO add name of button
+
+addBtn.onclick = function () {
+    const schoolNameInput = document.querySelector('#school-name-input'); //TODO 
+    const name = schoolNameInput.value;
+    schoolNameInput.value = "";
+
+    fetch('http://localhost:5001/insert/school', {
+        headers: {
+            'Content-type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({ name : name})
+    })
+    .then(response => response.json());
+    // .then(data => insertRowIntoTable(data['data']));
+}
+
+
