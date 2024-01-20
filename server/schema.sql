@@ -32,3 +32,9 @@ CREATE TABLE Class (
 
 ALTER TABLE Student ADD ClassId int(11) NOT NULL;
 ALTER TABLE Student ADD CONSTRAINT fk_ClassId FOREIGN KEY (ClassId) REFERENCES Class(ClassId);
+
+INSERT INTO School(Name) 
+VALUES ("Folio School");
+
+INSERT INTO Teacher(Name, SchoolId) 
+VALUES ("Folio Teacher", 1);
