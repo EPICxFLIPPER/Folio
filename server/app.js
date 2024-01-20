@@ -19,7 +19,7 @@ app.post('/insert', (request,response) => {
 app.get('/getAll', (request, response) => {
     const db = dbService.getDbServiceInstance();
 
-    const result = db.getAllData();
+    const result = db.getData("SELECT * FROM Teacher;");
 });
 
 //Update
