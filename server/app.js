@@ -11,9 +11,23 @@ app.use(express.urlencoded({extended : false}));
 
 
 //Create
+app.post('/insert', (request,response) => {
+    //Stub
+});
+
 
 //Read
+app.get('/getAll', (request, response) => {
+    //Stub
+});
+
 
 //Update
+app.patch('/update', (request, response) => {
+    //Stub
+});
 
 //Delete
+app.delete('/delete/:id', (request, response) => {
+    //Stub
+});
