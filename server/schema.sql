@@ -22,3 +22,6 @@ CREATE TABLE Student (
     TeacherId int(11),
     FOREIGN KEY (TeacherId) REFERENCES Teacher(TeacherId)
 );
+
+ALTER TABLE Student
+ADD absent varchar(255);
