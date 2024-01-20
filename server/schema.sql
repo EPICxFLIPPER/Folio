@@ -38,3 +38,12 @@ VALUES ("Folio School");
 
 INSERT INTO Teacher(Name, SchoolId) 
 VALUES ("Folio Teacher", 1);
+
+ALTER TABLE Class ADD TeacherId int(11) NOT NULL;
+ALTER TABLE Class ADD CONSTRAINT fk_TeacherId FOREIGN KEY (TeacherId) REFERENCES Teacher(TeacherId);
+
+ALTER TABLE Student
+DROP CONSTRAINT student_ibfk_1;
+
+ALTER TABLE Student
+DROP COLUMN TeacherId;
