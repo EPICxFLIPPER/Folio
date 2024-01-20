@@ -27,6 +27,7 @@ addBtn.onclick = function () {
     const schoolNameInput = document.querySelector('#school-name-input'); //TODO 
     const name = schoolNameInput.value;
     schoolNameInput.value = "";
+    console.log(name);
 
     fetch('http://localhost:5001/insert/school', {
         headers: {
@@ -35,8 +36,8 @@ addBtn.onclick = function () {
         method: 'POST',
         body: JSON.stringify({ name : name})
     })
-    .then(response => response.json());
-    // .then(data => insertRowIntoTable(data['data']));
+    .then(response => response.json())
+    .then(data => insertRowIntoTable(data['data']));
 }
 
 
