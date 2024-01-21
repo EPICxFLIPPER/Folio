@@ -106,7 +106,7 @@ app.get('/getSchool', (request, response) => {
 
 
 //Update
-app.patch('/update/student/:id', (request, response) => { //TODO CHeck that this is right
+app.patch('/update/student', (request, response) => { //TODO CHeck that this is right
     const { id } = request.body;
     const { academicPerformance } = request.body;
     const { weakestSubject } = request.body;

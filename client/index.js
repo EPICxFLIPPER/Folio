@@ -294,10 +294,8 @@ updateBtn.onclick = function() {
             // name: updateNameInput.value
             academicPerformance : updateAcademicPreformaceInput.value,
             weakestSubject : updateWeakestSubjectInput.value,
-            strongestSubject : updateStrongestSubjectInput.vaule,
+            strongestSubject : updateStrongestSubjectInput.value,
             absent : updateAbsenttSubjectInput.value
-
-
         })
     })
     .then(response => response.json())
