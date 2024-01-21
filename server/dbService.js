@@ -49,7 +49,6 @@ class DbService {
                     resolve(results);
                 })
             });
-            //console.log(response);
             return response;
 
         } catch (error) {
@@ -142,7 +141,7 @@ class DbService {
         try {
             id = parseInt(id, 10); 
             const response = await new Promise((resolve, reject) => {
-                const query = "DELETE FROM school WHERE id = (?)";
+                const query = "DELETE FROM School WHERE SchoolId = (?)";
     
                 connection.query(query, [id] , (err, result) => {
                     if (err) reject(new Error(err.message));
@@ -161,14 +160,13 @@ class DbService {
         try {
             id = parseInt(id, 10); 
             const response = await new Promise((resolve, reject) => {
-                const query = "DELETE FROM teacher WHERE id = (?)";
-    
+                const query = "DELETE FROM Teacher WHERE TeacherId = (?)";
+
                 connection.query(query, [id] , (err, result) => {
                     if (err) reject(new Error(err.message));
                     resolve(result.affectedRows);
                 })
             });
-    
             return response === 1 ? true : false;
         } catch (error) {
             console.log(error);
@@ -180,7 +178,7 @@ class DbService {
         try {
             id = parseInt(id, 10); 
             const response = await new Promise((resolve, reject) => {
-                const query = "DELETE FROM class WHERE id = (?)";
+                const query = "DELETE FROM ClassId WHERE TeacherId = (?)";
     
                 connection.query(query, [id] , (err, result) => {
                     if (err) reject(new Error(err.message));
@@ -199,7 +197,7 @@ class DbService {
         try {
             id = parseInt(id, 10); 
             const response = await new Promise((resolve, reject) => {
-                const query = "DELETE FROM student WHERE id = (?)";
+                const query = "DELETE FROM Student WHERE StudentId = (?)";
     
                 connection.query(query, [id] , (err, result) => {
                     if (err) reject(new Error(err.message));

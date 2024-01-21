@@ -44,7 +44,6 @@ function loadStudentHTMLTable(data) {
 
 function loadTeacherHTMLTable(data) {
     const teacherTable = document.querySelector('#teacher-table #teacher-body');
-    console.log(data);
 
     if (data.length === 0) {
         teacherTable.innerHTML = "<tr><td class='no-data' colspan='3'>No Data</td></tr>"
@@ -52,9 +51,9 @@ function loadTeacherHTMLTable(data) {
         let tableHtml = ""; 
         data.forEach(function ({Name, SchoolId, TeacherId}) {
             tableHtml += "<tr>";
+            tableHtml += `<td>${TeacherId}</td>`;
             tableHtml += `<td>${Name}</td>`;
             tableHtml += `<td>${SchoolId}</td>`;
-            tableHtml += `<td>${TeacherId}</td>`;
             tableHtml += `<td><button class="delete-row-btn" data-id=${TeacherId}>Delete</td>`;
             tableHtml += `<td><button class="edit-row-btn" data-id=${TeacherId}>Edit</td>`;
             tableHtml += "</tr>";
@@ -68,7 +67,18 @@ function loadSchoolHTMLTable(data) {
 
     if (data.length === 0) {
         schoolTable.innerHTML = "<tr><td class='no-data' colspan='2'>No Data</td></tr>"
-    }   
+    } else {
+        let tableHtml = ""; 
+        data.forEach(function ({SchoolId, Name}) {
+            tableHtml += "<tr>";
+            tableHtml += `<td>${SchoolId}</td>`;
+            tableHtml += `<td>${Name}</td>`;
+            tableHtml += `<td><button class="delete-row-btn" data-id=${SchoolId}>Delete</td>`;
+            tableHtml += `<td><button class="edit-row-btn" data-id=${SchoolId}>Edit</td>`;
+            tableHtml += "</tr>";
+        });
+        schoolTable.innerHTML = tableHtml;
+    }
 }
 
 function loadClassHTMLTable(data) {
@@ -77,7 +87,16 @@ function loadClassHTMLTable(data) {
     if (data.length === 0) {
         classTable.innerHTML = "<tr><td class='no-data' colspan='2'>No Data</td></tr>"
     } else {
-
+        let tableHtml = ""; 
+        data.forEach(function ({ClassId, TeacherId}) {
+            tableHtml += "<tr>";
+            tableHtml += `<td>${ClassId}</td>`;
+            tableHtml += `<td>${TeacherId}</td>`;
+            tableHtml += `<td><button class="delete-row-btn" data-id=${ClassId}>Delete</td>`;
+            tableHtml += `<td><button class="edit-row-btn" data-id=${ClassId}>Edit</td>`;
+            tableHtml += "</tr>";
+        });
+        classTable.innerHTML = tableHtml;
     }
 }
 
@@ -162,7 +181,89 @@ addStudentBtn.onclick = function () {
     .then(data => insertRowIntoTable(data['data']));
 }
 
+document.querySelector('#school-table #school-body').addEventListener('click', function(event) {
+    if (event.target.className === "delete-row-btn") {
+        deleteSchoolRowById(event.target.dataset.id);
+    }
+    if (event.target.className === "edit-row-btn") {
+        handleSchoolEditRow(event.target.dataset.id);
+    }
+});
 
+document.querySelector('#teacher-table #teacher-body').addEventListener('click', function(event) {
+    if (event.target.className === "delete-row-btn") {
+        deleteTeacherRowById(event.target.dataset.id);
+    }
+    if (event.target.className === "edit-row-btn") {
+        handleTeacherEditRow(event.target.dataset.id);
+    }
+});
+
+document.querySelector('#class-table #class-body').addEventListener('click', function(event) {
+    if (event.target.className === "delete-row-btn") {
+        deleteClassRowById(event.target.dataset.id);
+    }
+    if (event.target.className === "edit-row-btn") {
+        handleClassEditRow(event.target.dataset.id);
+    }
+});
+
+document.querySelector('#student-table #student-body').addEventListener('click', function(event) {
+    if (event.target.className === "delete-row-btn") {
+        deleteStudentRowById(event.target.dataset.id);
+    }
+    if (event.target.className === "edit-row-btn") {
+        handleStudentEditRow(event.target.dataset.id);
+    }
+});
+
+function deleteSchoolRowById(id) {
+    fetch('http://localhost:5001/delete/school/' + id, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
+}
+
+function deleteTeacherRowById(id) {
+    fetch('http://localhost:5001/delete/teacher/' + id, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
+}
+
+function deleteClassRowById(id) {
+    fetch('http://localhost:5001/delete/class/' + id, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
+}
+
+function deleteStudentRowById(id) {
+    fetch('http://localhost:5001/delete/student/' + id, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
+}
 
 
 
