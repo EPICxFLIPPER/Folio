@@ -24,13 +24,13 @@ function loadStudentHTMLTable(data) {
         studentTable.innerHTML = "<tr><td class='no-data' colspan='7'>No Data</td></tr>"
     } else {
         let tableHtml = ""; 
-        data.forEach(function ({AcademicPerformance, ClassId, Name, StrongSubject, StudentId, WeakestSubject, absent}) {
+        data.forEach(function ({AcademicPerformance, ClassId, Name, StrongestSubject, StudentId, WeakestSubject, absent}) {
             tableHtml += "<tr>";
             tableHtml += `<td>${StudentId}</td>`;
             tableHtml += `<td>${Name}</td>`;
             tableHtml += `<td>${AcademicPerformance}</td>`;
             tableHtml += `<td>${WeakestSubject}</td>`;
-            tableHtml += `<td>${StrongSubject}</td>`;
+            tableHtml += `<td>${StrongestSubject}</td>`;
             tableHtml += `<td>${absent}</td>`;
             tableHtml += `<td>${ClassId}</td>`;
             tableHtml += `<td><button class="delete-row-btn" data-id=${StudentId}>Delete</td>`;
