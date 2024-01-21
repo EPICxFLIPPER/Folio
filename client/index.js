@@ -119,7 +119,11 @@ addSchoolBtn.onclick = function () {
         body: JSON.stringify({ name : name})
     })
     .then(response => response.json())
-    .then(data => insertRowIntoTable(data['data']));
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
 }
 
 
@@ -140,7 +144,11 @@ addTeacherBtn.onclick = function () {
         body: JSON.stringify({ name : name, schoolId : schoolId})
     })
     .then(response => response.json())
-    .then(data => insertRowIntoTable(data['data']));
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
 }
 
 addClassBtn.onclick = function () {
@@ -157,7 +165,11 @@ addClassBtn.onclick = function () {
         body: JSON.stringify({ teacherId : teacherId})
     })
     .then(response => response.json())
-    .then(data => insertRowIntoTable(data['data']));
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
 }
 
 
