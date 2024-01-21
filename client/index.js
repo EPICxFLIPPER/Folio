@@ -29,7 +29,7 @@ addSchoolBtn.onclick = function () {
     const schoolNameInput = document.querySelector('#school-name-input');  
     const name = schoolNameInput.value;
     schoolNameInput.value = "";
-    console.log(name);
+    
 
     fetch('http://localhost:5001/insert/school', {
         headers: {
@@ -41,6 +41,51 @@ addSchoolBtn.onclick = function () {
     .then(response => response.json())
     .then(data => insertRowIntoTable(data['data']));
 }
+
+
+addTeacherBtn.onclick = function () {
+    const teacherNameInput = document.querySelector('');  //TODO: WIE
+    const teacherSchoolIdInput = document.querySelector('') //TODO: WIE
+    const name = teacherNameInput.value;
+    const schoolId = teacherSchoolIdInput.vaule;
+    teacherNameInput.value = "";
+    teacherSchoolIdInput.value = "";
+    
+
+    fetch('http://localhost:5001/insert/school', {
+        headers: {
+            'Content-type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({ name : name})
+    })
+    .then(response => response.json())
+    .then(data => insertRowIntoTable(data['data']));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function insertRowIntoTable(data) {
     console.log(data);
