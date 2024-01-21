@@ -77,6 +77,7 @@ class DbService {
     }
 
     async insertNewTeacher(name, schoolId) {
+        const schoolIdInt = parseInt(schoolId.value, 10);
         try {
             const insertId = await new Promise((resolve, reject) => {
                 const query = "INSERT INTO Teacher (name, schoolId) VALUES (?,?);";
