@@ -244,8 +244,22 @@ class DbService {
         }
     }
 
-    async editSchoolById() {
-        
+    async editStudentById(id,academicPerformance,weakestSubject,strongestSubject,absent) {
+        try {
+            id = parseInt(id, 10); 
+            const response = await new Promise((resolve, reject) => {
+                const query = "UPDATE Student SET AcademicPerformance = (?), WeakestSubject = (?), StrongestSubject = (?), Absent = (?),  WHERE id = (?);";
+                connection.query(query, [academicPerformance,weakestSubject,strongestSubject,absent, id] , (err, result) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(result.affectedRows);
+                })
+            });
+    
+            return response === 1 ? true : false;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
     }
 
     async editStudentById() {

@@ -106,12 +106,16 @@ app.get('/getSchool', (request, response) => {
 
 
 //Update
-app.patch('/update/school/:id', (request, response) => {
-    const { id } = request.params;
-    const { name } = request.body;
+app.patch('/update/student/:id', (request, response) => { //TODO CHeck that this is right
+    const { id } = request.body;
+    const { academicPerformance } = request.body;
+    const { weakestSubject } = request.body;
+    const { strongestSubject } = request.body;
+    const { absent } = request.body;
+
     const db = dbService.getDbServiceInstance();
 
-    const result = db.editSchoolById(id,name);
+    const result = db.editStudentById(id,academicPerformance,weakestSubject,strongestSubject,absent);
 
     result
     .then(data => response.json({success : data}))
