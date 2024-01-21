@@ -19,15 +19,15 @@ function loadHTMLTables(data) {
 }
 
 
-const addBtn = document.querySelector('#add-school-btn'); //TODO add name of button
+const addBtn = document.querySelector('#add-school-btn'); 
 
 addBtn.onclick = function () {
-    const schoolNameInput = document.querySelector('#school-name-input'); //TODO 
+    const schoolNameInput = document.querySelector('#school-name-input');  
     const name = schoolNameInput.value;
     schoolNameInput.value = "";
-    //console.log(name);
+    console.log(name);
 
-    fetch('http://localhost:5001/insert', {
+    fetch('http://localhost:5001/insert/school', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -40,7 +40,6 @@ addBtn.onclick = function () {
 
 function insertRowIntoTable(data) {
     console.log(data);
-
 }
 
 
