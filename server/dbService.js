@@ -60,7 +60,64 @@ class DbService {
     async insertNewSchool(name) {
         try {
             const insertId = await new Promise((resolve, reject) => {
-                const query = "INSERT INTO School (name) VALUES ?;";
+                const query = "INSERT INTO School (name) VALUES (?);";
+
+                connection.query(query, [name] , (err, result) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(result.insertId);
+                })
+            });
+            return {
+                id : insertId,
+                name : name
+            };
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async insertNewTeacher(name) {
+        try {
+            const insertId = await new Promise((resolve, reject) => {
+                const query = "INSERT INTO Teacher (name) VALUES (?);";
+
+                connection.query(query, [name] , (err, result) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(result.insertId);
+                })
+            });
+            return {
+                id : insertId,
+                name : name
+            };
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async insertNewClass(teacherId) {
+        try {
+            const insertId = await new Promise((resolve, reject) => {
+                const query = "INSERT INTO Class (teacherId) VALUES (?);";
+
+                connection.query(query, [teacherId] , (err, result) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(result.insertId);
+                })
+            });
+            return {
+                id : insertId,
+                teacherId : teacherId
+            };
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async insertNewStudent(name, classId) {
+        try {
+            const insertId = await new Promise((resolve, reject) => {
+                const query = "INSERT INTO Student (name, classId) VALUES (?,?);";
 
                 connection.query(query, [name] , (err, result) => {
                     if (err) reject(new Error(err.message));
@@ -70,7 +127,7 @@ class DbService {
             return {
                 id : insertId,
                 name : name,
-                dateAdded : dateAdded
+                classId: classId
             };
         } catch (error) {
             console.log(error);
