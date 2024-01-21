@@ -34,7 +34,7 @@ function loadStudentHTMLTable(data) {
             tableHtml += `<td>${absent}</td>`;
             tableHtml += `<td>${ClassId}</td>`;
             tableHtml += `<td><button class="delete-row-btn" data-id=${StudentId}>Delete</td>`;
-            tableHtml += `<td><button class="edit-row-btn" data-id=${StudentId}>Edit</td>`;
+            tableHtml += `<td><button class="edit-student-row-btn" data-id=${StudentId}>Edit</td>`;
             tableHtml += "</tr>";
         });
         studentTable.innerHTML = tableHtml;
