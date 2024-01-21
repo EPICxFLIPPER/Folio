@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(data => loadHTMLTables(data['data']));
 });
 
+//Effects: Loads the tables: FRONT END, DELETE LATER
 function loadHTMLTables(data) {
     const schoolTable = document.querySelector('#school-table #school-body');
     const teacherTable = document.querySelector('#teacher-table #teacher-body');
@@ -19,9 +20,12 @@ function loadHTMLTables(data) {
 }
 
 
-const addBtn = document.querySelector('#add-school-btn'); 
+const addSchoolBtn = document.querySelector('#add-school-btn');
+const addTeacherBtn = document.querySelector(''); //TODO: replace with name of button once add teacher button is created 
+const addClassBtn = document.querySelector(''); //TODO: replace with name of button once add class button is created.
+const addStudentBtn = document.querySelector(''); //TODO: replace with name of button once add student button is created.
 
-addBtn.onclick = function () {
+addSchoolBtn.onclick = function () {
     const schoolNameInput = document.querySelector('#school-name-input');  
     const name = schoolNameInput.value;
     schoolNameInput.value = "";
