@@ -182,7 +182,7 @@ class DbService {
     
                 connection.query(query, [id] , (err, result) => {
                     if (err) reject(new Error(err.message));
-                    //resolve(result.affectedRows);
+                    resolve(result.affectedRows);
                 })
             });
     

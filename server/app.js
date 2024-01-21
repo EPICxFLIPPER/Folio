@@ -126,10 +126,8 @@ app.delete('/delete/school/:id', (request, response) => {
 app.delete('/delete/teacher/:id', (request, response) => {
     const { id } = request.params;
     const db = dbService.getDbServiceInstance();
-    console.log(id);
 
     const result = db.deleteTeacherById(id);
-    console.log(id);
 
     result
     .then(data => response.json({success : data}))
