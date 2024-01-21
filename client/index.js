@@ -27,7 +27,7 @@ addBtn.onclick = function () {
     schoolNameInput.value = "";
     //console.log(name);
 
-    fetch('http://localhost:5001/insert/school', {
+    fetch('http://localhost:5001/insert', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -40,7 +40,7 @@ addBtn.onclick = function () {
 
 function insertRowIntoTable(data) {
     console.log(data);
-    
+
 }
 
 

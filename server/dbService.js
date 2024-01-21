@@ -57,14 +57,12 @@ class DbService {
         }
     }
 
-<<<<<<< HEAD
-    async insertNewName(name) {
+    async insertNewSchool(name) {
         try {
-            const dateAdded = new Date();
             const insertId = await new Promise((resolve, reject) => {
-                const query = "INSERT INTO names (name, date_added) VALUES (?,?);";
+                const query = "INSERT INTO School (name) VALUES ?;";
 
-                connection.query(query, [name, dateAdded] , (err, result) => {
+                connection.query(query, [name] , (err, result) => {
                     if (err) reject(new Error(err.message));
                     resolve(result.insertId);
                 })
@@ -77,10 +75,6 @@ class DbService {
         } catch (error) {
             console.log(error);
         }
-=======
-    async insertNewSchool(name) {
-        //
->>>>>>> 1fc095511b2176f1bc0caca2204df59d6737a8d2
     }
 }
 
