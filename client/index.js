@@ -63,27 +63,6 @@ addTeacherBtn.onclick = function () {
     .then(data => insertRowIntoTable(data['data']));
 }
 
-addStudentBtn.onclick = function () {
-    const studentNameInput = document.querySelector('#student-name-input');
-    const studentClassIdInput = document.querySelector('#teacher-classId-input');
-    const name = teacherNameInput.value;
-    const classId = teacherSchoolIdInput.value;
-
-    studentNameInput.value = "";
-    studentClassIdInput.value = "";
-    
-
-    fetch('http://localhost:5001/insert/teacher', {
-        headers: {
-            'Content-type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify({ name : name, classId : classId})
-    })
-    .then(response => response.json())
-    .then(data => insertRowIntoTable(data['data']));
-}
-
 
 
 
