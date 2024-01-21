@@ -163,9 +163,17 @@ class DbService {
                 const query = "DELETE FROM Teacher WHERE TeacherId = (?)";
 
                 connection.query(query, [id] , (err, result) => {
-                    if (err) reject(new Error(err.message));
-                    resolve(result.affectedRows);
-                })
+                    if (err) {
+                        if (err === 'ER_ROW_IS_REFERENCED_2') {
+                            console.error("Cannot delete teacher due to foreign key constraint");
+                            resolve(0);
+                        } else {
+                            reject(new Error(err.message));
+                        }
+                    } else {
+                        resolve(result.affectedRows || 0);
+                    }
+                });
             });
             return response === 1 ? true : false;
         } catch (error) {
