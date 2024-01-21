@@ -1,9 +1,9 @@
 import React from "react";
-import FrontPage from "./components/frontPage"; // Assuming the component file is named frontPage.js
+import StudentInfo from "./components/studentInfo"; // Assuming the component file is named frontPage.js
 
 const App = () => {
   return (
-    <FrontPage />
+    <StudentInfo />
   );
 };
 
