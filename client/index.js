@@ -212,7 +212,7 @@ document.querySelector('#student-table #student-body').addEventListener('click',
     if (event.target.className === "delete-row-btn") {
         deleteStudentRowById(event.target.dataset.id);
     }
-    if (event.target.className === "edit-row-btn") {
+    if (event.target.className === "edit-student-row-btn") {
         handleStudentEditRow(event.target.dataset.id);
     }
 });
@@ -266,16 +266,10 @@ function deleteStudentRowById(id) {
 }
 
 
-function handleSchoolEditRow(id) {
-    fetch('http://localhost:5001/update/school/' + id, {
-        method: 'PATCH'
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            location.reload();
-        }
-    });
+function handleStudentEditRow(id) {
+    const updateSection = document.querySelector('#update-student-row');
+    updateSection.hidden = false;
+    //document.querySelector('#student-name-input').dataset.id = id;
 }
 
 
