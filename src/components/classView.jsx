@@ -4,6 +4,19 @@ import "./classView.css";
 
 const ClassView = () => {
 const[names, setNames] = useState([]); 
+const[student, setStudent] = useState("Steve");
+
+const addStudent = function () {
+
+  fetch('http://localhost:5001/insert/student', {
+      headers: {
+          'Content-type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({ name : student, classId : 18})
+  })
+    .then(response => setNames([...names , student]))
+}
 
 useEffect(() => {
   axios.get("http://localhost:5001/getStudent")
@@ -12,9 +25,9 @@ useEffect(() => {
     console.log(res.data);
     setNames(res.data.data);
   });
-} ,[]) 
+} ,[])
 
-console.log(names.length);
+
 if (names.length < 2) {
   return null;
 }
@@ -95,10 +108,10 @@ for (let j = counter; j < 30; j++) {
      <div className="addStudent">
       <div className="addStudentTextBox">
       <label for="studentName">Student name:</label>
-      <input type="name" id="studentName" name="studentName" required></input>
+      <input type="name" id="studentName" name="studentName" required value={student} onChange={(e)=> {setStudent(e.target.value)}}></input>
       </div>
      <div className="addStudentBtn">
-      <button>add student</button>
+      <button onClick={addStudent}>add student</button>
      </div>
      </div>
      </div>
