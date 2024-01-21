@@ -88,6 +88,7 @@ app.get('/getStudent', (request, response) => {
 
 //Read
 app.get('/getStudent/:id', (request, response) => {
+    console.log(request.params);
     const { id } = request.params;
     const db = dbService.getDbServiceInstance();
 

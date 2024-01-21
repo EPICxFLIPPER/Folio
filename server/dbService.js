@@ -120,9 +120,9 @@ class DbService {
         const classIdInt = parseInt(classId.value, 10);
         try {
             const insertId = await new Promise((resolve, reject) => {
-                const query = "INSERT INTO Student (name, classId) VALUES (?,?);";
+                const query = "INSERT INTO Student (name, classId, absent) VALUES (?,?,?);";
 
-                connection.query(query, [name, classId] , (err, result) => {
+                connection.query(query, [name, classId, "Yes"] , (err, result) => {
                     if (err) reject(new Error(err.message));
                     resolve(result.insertId);
                 })
@@ -166,6 +166,7 @@ class DbService {
 
     async getStudentById(id) {
         try {
+            console.log(id);
             id = parseInt(id, 10);
             const response = await new Promise((resolve, reject) => {
                 const query = "SELECT * FROM Student WHERE StudentId = (?);"
@@ -175,6 +176,7 @@ class DbService {
                     resolve(results);
                 })
             });
+            console.log(response);
             return response;
 
         } catch (error) {
