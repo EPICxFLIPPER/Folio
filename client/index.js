@@ -21,9 +21,9 @@ function loadHTMLTables(data) {
 
 
 const addSchoolBtn = document.querySelector('#add-school-btn');
-const addTeacherBtn = document.querySelector(''); //TODO: replace with name of button once add teacher button is created 
-const addClassBtn = document.querySelector(''); //TODO: replace with name of button once add class button is created.
-const addStudentBtn = document.querySelector(''); //TODO: replace with name of button once add student button is created.
+const addTeacherBtn = document.querySelector('#add-teacher-btn'); 
+const addClassBtn = document.querySelector('#add-class-btn'); 
+const addStudentBtn = document.querySelector('#add-student-btn'); 
 
 addSchoolBtn.onclick = function () {
     const schoolNameInput = document.querySelector('#school-name-input');  
@@ -44,20 +44,20 @@ addSchoolBtn.onclick = function () {
 
 
 addTeacherBtn.onclick = function () {
-    const teacherNameInput = document.querySelector('');  //TODO: WIE
-    const teacherSchoolIdInput = document.querySelector('') //TODO: WIE
+    const teacherNameInput = document.querySelector('#teacher-name-input');  //TODO: WIE
+    const teacherSchoolIdInput = document.querySelector('#teacher-schoolId-input') //TODO: WIE
     const name = teacherNameInput.value;
-    const schoolId = teacherSchoolIdInput.vaule;
+    const schoolId = teacherSchoolIdInput.value;
     teacherNameInput.value = "";
     teacherSchoolIdInput.value = "";
     
 
-    fetch('http://localhost:5001/insert/school', {
+    fetch('http://localhost:5001/insert/teacher', {
         headers: {
             'Content-type': 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify({ name : name})
+        body: JSON.stringify({ name : name, schoolId : schoolId})
     })
     .then(response => response.json())
     .then(data => insertRowIntoTable(data['data']));

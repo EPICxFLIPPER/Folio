@@ -22,6 +22,18 @@ app.post('/insert/school', (request, response) => {
     .catch(err => console.log(err));
 });
 
+//Create
+app.post('/insert/teacher', (request, response) => {
+    const { name, schoolId } = request.body;
+    const db = dbService.getDbServiceInstance();
+    
+    const result = db.insertNewTeacher(name, schoolId);
+
+    result
+    .then(data => response.json({ data: data}))
+    .catch(err => console.log(err));
+});
+
 
 //Read
 app.get('/getAll', (request, response) => {

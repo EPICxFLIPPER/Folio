@@ -76,19 +76,20 @@ class DbService {
         }
     }
 
-    async insertNewTeacher(name) {
+    async insertNewTeacher(name, schoolId) {
         try {
             const insertId = await new Promise((resolve, reject) => {
-                const query = "INSERT INTO Teacher (name) VALUES (?);";
+                const query = "INSERT INTO Teacher (name, schoolId) VALUES (?,?);";
 
-                connection.query(query, [name] , (err, result) => {
+                connection.query(query, [name, schoolId] , (err, result) => {
                     if (err) reject(new Error(err.message));
                     resolve(result.insertId);
                 })
             });
             return {
                 id : insertId,
-                name : name
+                name : name,
+                schoolId : schoolId
             };
         } catch (error) {
             console.log(error);
