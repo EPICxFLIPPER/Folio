@@ -1,0 +1,382 @@
+
+body {
+    background: linear-gradient(to bottom, #3677d7, #300b94);
+   } 
+
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .center {
+    background-color: #ffffff; /* White background color */
+    border-radius: 40px; /* Rounded corners */
+    padding: 20px; /* Adjust padding as needed */
+    width: 70vw; /* 7/10 of the viewport width */
+    height: 50vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+
+  }
+
+
+
+
+.closeButton {
+    position: relative;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    cursor: pointer;
+  }
+  
+  .circle {
+    width: 30px; /* Adjust as needed */
+    height: 30px; /* Adjust as needed */
+    background-color: #ff0000; /* Red color */
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .cross{
+    color: white;
+    font-size: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .pp {
+    top: 100px;
+  left: 50%;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    border-radius: 50%;
+    background: url('https://cdn-icons-png.flaticon.com/512/4675/4675250.png') center center/cover;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+  .name {
+    top: 130px;
+  left: 50%;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    position: relative;
+    text-align: center;
+    font-weight: 50;
+    font-size: 11px;
+    transform: translate(-50%, -50%);
+  }
+  .attendance {
+    top: 50px;
+  left: 50%;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    position: relative;
+    text-align: center;
+    font-weight: 20;
+    font-size: 8px;
+    color: green;
+    transform: translate(-50%, -50%);
+  }
+
+  .academicPerformanceBox {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 400px;
+  left: 50%;
+    background: linear-gradient(to bottom, #3677d7, #300b94);
+    border-radius: 40px; /* Rounded corners */
+    padding: 20px; /* Adjust padding as needed */
+    width: 50vw; /* 7/10 of the viewport width */
+    height: 20vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+  }
+  .overallPerformance {
+    top: 10px;
+  left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+   color: white;
+   position: relative;
+    text-align: center;
+    font-weight: 20;
+    font-size: 11px;
+    transform: translate(-50%, -50%);
+  }
+
+  .container {
+    display: flex;
+    padding-left: 5%;
+  }
+  
+
+  .dates
+  .gradesList {
+    flex: 1;
+  }
+
+  .gradesList {
+    display: flex;
+    flex-direction: column;
+    padding-left: 4%;
+    align-items: start; /* Optional: Center the content horizontally */
+  }
+  
+  
+  
+  .gradesList ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .gradesList li {
+    margin: 8px 0; /* Add vertical margin between list items */
+    text-align: center;
+    color: #bdbdbd; /* Optional: Center each list item text */
+    font-weight: 10;
+  }
+
+  .dates {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Optional: Center the content horizontally */
+  }
+  .dates ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+  }
+
+  .dates li {
+    margin: 8px 0; /* Add vertical margin between list items */
+    text-align: center;
+    color: #ffffff; /* Optional: Center each list item text */
+    font-weight: 20;
+  }
+
+  .container2{
+    width:40%;
+    padding-left: 10%;
+    padding-top: 5%;
+  }
+  .comment{
+    word-wrap: break-word;
+  }
+
+  .upperContainer
+  .lowerContainer {
+    flex: 1;
+    flex-direction: column;
+    -ms-flex-align: center;
+  }
+  .lowerContainer{
+    padding-top: 28%;
+    display: flex;
+    width: 50vw; /* 7/10 of the viewport width */
+    height: 20vw;
+    left: 50%;
+  }
+
+  .container4.container5{
+    flex:1;
+  }
+
+  .container5{
+    padding-left:35%;
+  }
+
+  .container4{
+    padding-left:35%;
+  }
+
+
+
+  .strengths{
+    text-align: center;
+    font-weight: 50;
+    font-size: 11px;
+    color:rgb(73, 72, 72);
+  }
+
+  .weaknesses{
+    text-align: center;
+    font-weight: 50;
+    font-size: 11px;
+    color:rgb(73, 72, 72);
+  }
+
+  .strength1 {
+    background: linear-gradient(to bottom, #00ffdd, #00475c);
+    border-radius: 20px; /* Rounded corners */
+     /* Adjust padding as needed */
+    width: 35vw; /* 7/10 of the viewport width */
+    height: 25vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+    padding-top: 25%;
+    display: flex;
+    width: 10vw; /* 7/10 of the viewport width */
+    height: 0.3%;
+    left: 50%;
+  }
+  .strength2 {
+    background: linear-gradient(to bottom, #00ffdd, #00475c);
+    border-radius: 20px; /* Rounded corners */
+     /* Adjust padding as needed */
+    width: 35vw; /* 7/10 of the viewport width */
+    height: 25vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+    padding-top: 25%;
+    display: flex;
+    width: 10vw; /* 7/10 of the viewport width */
+    height: 0.3%;
+    left: 50%;
+    position: relative;
+    top:8%;
+    transform: translate(-50%, -50%);
+  }
+  .addStrength {
+    background: linear-gradient(to bottom, #00ffdd, #00475c);
+    border-radius: 50%; /* Rounded corners */
+     /* Adjust padding as needed */
+     width: 50px; /* Adjust as needed */
+     height: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+    position: relative;
+    top:12%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .first {
+    position: relative;
+     /* Adjust as needed */
+    cursor: pointer;
+  }
+  .tag1{
+    color: rgb(255, 255, 255);
+    font-size: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .second {
+    top:8%;
+    position: relative;
+     /* Adjust as needed */
+    cursor: pointer;
+  }
+  .tag2{
+    color: rgb(255, 255, 255);
+    font-size: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .add1 {
+    top:12%;
+    position: relative;
+     /* Adjust as needed */
+    cursor: pointer;
+  }
+  .plus1{
+    color: rgb(255, 255, 255);
+    font-size: 65%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .weak1 {
+    background: linear-gradient(to bottom, #ff009d, #9a003b);
+    border-radius: 20px; /* Rounded corners */
+     /* Adjust padding as needed */
+    width: 35vw; /* 7/10 of the viewport width */
+    height: 25vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+    padding-top: 25%;
+    display: flex;
+    width: 10vw; /* 7/10 of the viewport width */
+    height: 0.3%;
+    left: 50%;
+  }
+  .weak2 {
+    background: linear-gradient(to bottom, #ff009d, #9a003b);
+    border-radius: 20px; /* Rounded corners */
+     /* Adjust padding as needed */
+    width: 35vw; /* 7/10 of the viewport width */
+    height: 25vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+    padding-top: 25%;
+    display: flex;
+    width: 10vw; /* 7/10 of the viewport width */
+    height: 0.3%;
+    left: 50%;
+    position: relative;
+    top:8%;
+    transform: translate(-50%, -50%);
+  }
+  .addWeak {
+    background: linear-gradient(to bottom, #ff009d, #9a003b);
+    border-radius: 50%; /* Rounded corners */
+     /* Adjust padding as needed */
+     width: 50px; /* Adjust as needed */
+     height: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+    position: relative;
+    top:12%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .third {
+    position: relative;
+     /* Adjust as needed */
+    cursor: pointer;
+  }
+  .tag3{
+    color: rgb(255, 255, 255);
+    font-size: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .fourth {
+    top:8%;
+    position: relative;
+     /* Adjust as needed */
+    cursor: pointer;
+  }
+  .tag4{
+    color: rgb(255, 255, 255);
+    font-size: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .add2 {
+    top:12%;
+    position: relative;
+     /* Adjust as needed */
+    cursor: pointer;
+  }
+  .plus2{
+    color: rgb(255, 255, 255);
+    font-size: 65%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  
+ 
+  
+
+  
+ 
+  

@@ -1,10 +1,10 @@
 import React from "react";
-import FrontPage from "./components/frontPage/frontPage";
+import StudentInfo from "./components/studentInfo/frontPage";
 import ClassView from "./components/classView"; // Capitalized the component name
 
 const App = () => {
   return (
-  //   <FrontPage />
+  //   <StudentInfo />
     <ClassView/>
     // <FrontPage/>
   );
