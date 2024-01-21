@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./studentInfo.css" ;
+import { useParams } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-const studentInfo = () => {
+ 
+
+const StudentInfo = () => {
+  const navigate = useNavigate();
+
+  let { id } = useParams();
+  const [ student, setStudent] = useState(null);
+
+
+const handleButtonClick = () => {
+  navigate("/");
+}
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {;
+        const response = await fetch(`http://localhost:5001/getStudent/${id}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setStudent(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+  },[id]);
+
+  if (student === null) {
+    return <p>Loading...</p>
+  }
+
+  console.log(student);
+
     const generateRandomPercentage = () => {
         return Math.floor(Math.random() * 51) + 50 + '%';
       };
@@ -43,16 +79,20 @@ const studentInfo = () => {
       </div>
       <div className="closeButton">
         <div className="circle">
-        <div className="cross"><h1>X</h1></div>
+        <div className="cross"><button onClick={() => handleButtonClick()}>X</button></div>
         </div>
        
       </div>
       <div className="pp"></div>
-      <div className="name"> <h1>Name</h1></div>
-      <div className="attendance"> <h1>Present</h1></div>
+      <div className="name"> <h1>{student.success[0].Name}</h1></div>
+      <div className="attendance"> <h1>Attendance: {student.success[0].absent}</h1></div>
       <div className="upperContainer">
       <div className="academicPerformanceBox">
-      <div className="overallPerformance"><h1>Overall Performance</h1></div>
+      <div className="overallPerformance"><h1>Overall Performance Notes:</h1>
+        <div>
+          {student.success[0].AcademicPerformance}
+        </div>
+      </div>
       <div className="container">
       <div className="dates">
   <ul>
@@ -69,7 +109,7 @@ const studentInfo = () => {
       </ul>
   </div>
   <div className="container2">
-  <div className="comment">blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla</div>
+  <div className="comment"></div>
   </div>
   <div className="container3">     </div>
 </div>
@@ -86,12 +126,7 @@ const studentInfo = () => {
       <div className="strengths"> <h1>Strengths</h1></div>
       <div className="first">
       <div className="strength1">
-      <div className="tag1"> <h1>Tag 1</h1></div>
-      </div>
-      </div>
-      <div className="second">
-      <div className="strength2">
-      <div className="tag2"> <h1>Tag 2</h1></div>
+      <div className="tag1"> <h1>{student.success[0].StrongestSubject}</h1></div>
       </div>
       </div>
       <div className="add1">
@@ -104,12 +139,7 @@ const studentInfo = () => {
       <div className="weaknesses"> <h1>Weaknesses</h1></div>
       <div className="third">
       <div className="weak1">
-      <div className="tag3"> <h1>Tag 3</h1></div>
-      </div>
-      </div>
-      <div className="fourth">
-      <div className="weak2">
-      <div className="tag4"> <h1>Tag 4</h1></div>
+      <div className="tag3"> <h1>{student.success[0].WeakestSubject}</h1></div>
       </div>
       </div>
       <div className="add2">
@@ -127,4 +157,4 @@ const studentInfo = () => {
       
 }
 
-export default studentInfo;
+export default StudentInfo;
