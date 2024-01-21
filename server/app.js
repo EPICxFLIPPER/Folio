@@ -124,4 +124,40 @@ app.delete('/delete/school/:id', (request, response) => {
     .catch(err => console.log(err));
 });
 
+//Delete
+app.delete('/delete/teacher/:id', (request, response) => {
+    const { id } = request.params;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.deleteTeacherById(id);
+    
+    result
+    .then(data => response.json({success : data}))
+    .catch(err => console.log(err));
+});
+
+//Delete
+app.delete('/delete/class/:id', (request, response) => {
+    const { id } = request.params;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.deleteClassById(id);
+    
+    result
+    .then(data => response.json({success : data}))
+    .catch(err => console.log(err));
+});
+
+//Delete
+app.delete('/delete/student/:id', (request, response) => {
+    const { id } = request.params;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.deleteStudentById(id);
+    
+    result
+    .then(data => response.json({success : data}))
+    .catch(err => console.log(err));
+});
+
 app.listen(process.env.PORT, () => console.log('app is running'));
