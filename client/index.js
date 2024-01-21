@@ -269,7 +269,43 @@ function deleteStudentRowById(id) {
 function handleStudentEditRow(id) {
     const updateSection = document.querySelector('#update-student-row');
     updateSection.hidden = false;
-    //document.querySelector('#student-name-input').dataset.id = id;
+    document.querySelector('#student-performance-input').dataset.id = id;
+}
+
+
+const updateBtn = document.querySelector('#submit-edit');
+
+
+updateBtn.onclick = function() {
+    // const updateNameInput = document.querySelector('#student-name-input');
+    const updateAcademicPreformaceInput = document.querySelector('#student-performance-input');
+    const updateWeakestSubjectInput = document.querySelector('#student-weak-input');
+    const updateStrongestSubjectInput = document.querySelector('#student-strong-input');
+    const updateAbsenttSubjectInput = document.querySelector('#student-absent-input');
+   
+
+    fetch('http://localhost:5001/update/student', {
+        method: 'PATCH',
+        headers: {
+            'Content-type' : 'application/json'
+        },
+        body: JSON.stringify({
+            id: updateAcademicPreformaceInput.dataset.id,
+            // name: updateNameInput.value
+            academicPerformance : updateAcademicPreformaceInput.value,
+            weakestSubject : updateWeakestSubjectInput.value,
+            strongestSubject : updateStrongestSubjectInput.vaule,
+            absent : updateAbsenttSubjectInput.value
+
+
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    })
 }
 
 
