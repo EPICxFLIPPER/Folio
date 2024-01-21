@@ -13,7 +13,7 @@ const StudentInfo = () => {
 
 
 const handleButtonClick = () => {
-  navigate("/");
+  navigate("/classView");
 }
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const handleButtonClick = () => {
         <div>
     
           {/* start of center */}
-          <div className="center">
+          <div className="studentInfoCenter">
             {/* Red circle with white cross */}
             <div className="editButton">
         <div className="circle1">
@@ -85,13 +85,12 @@ const handleButtonClick = () => {
       </div>
       <div className="pp"></div>
       <div className="name"> <h1>{student.success[0].Name}</h1></div>
-      <div className="attendance"> <h1>Attendance: {student.success[0].absent}</h1></div>
+      <div className="attendance">
+        <h1>Attendance: {student.success[0].absent}</h1></div>
       <div className="upperContainer">
       <div className="academicPerformanceBox">
       <div className="overallPerformance"><h1>Overall Performance Notes:</h1>
-        <div>
-          {student.success[0].AcademicPerformance}
-        </div>
+        <div>{student.success[0].AcademicPerformance}</div>
       </div>
       <div className="container">
       <div className="dates">
