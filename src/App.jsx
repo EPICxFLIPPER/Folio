@@ -1,9 +1,10 @@
 import React from "react";
-import FrontPage from "./components/frontPage"; // Assuming the component file is named frontPage.js
+import ClassView from "./components/classView"; // Capitalized the component name
 
 const App = () => {
   return (
-    <FrontPage />
+    // <FrontPage />
+    <ClassView />
   );
 };
 
