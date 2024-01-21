@@ -266,7 +266,17 @@ function deleteStudentRowById(id) {
 }
 
 
-
+function handleSchoolEditRow(id) {
+    fetch('http://localhost:5001/update/school/' + id, {
+        method: 'PATCH'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
+}
 
 
 

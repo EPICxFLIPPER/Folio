@@ -219,6 +219,10 @@ class DbService {
             return false;
         }
     }
+
+    async editSchoolById() {
+        
+    }
 }
 
 module.exports = DbService;

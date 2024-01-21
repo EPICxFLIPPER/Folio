@@ -106,8 +106,16 @@ app.get('/getSchool', (request, response) => {
 
 
 //Update
-app.patch('/update', (request, response) => {
-    //Stub
+app.patch('/update/school/:id', (request, response) => {
+    const { id } = request.params;
+    const { name } = request.body;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.editSchoolById(id,name);
+
+    result
+    .then(data => response.json({success : data}))
+    .catch(err => console.log(err));
 });
 
 //Delete
