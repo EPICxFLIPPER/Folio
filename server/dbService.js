@@ -141,7 +141,7 @@ class DbService {
         try {
             id = parseInt(id, 10); 
             const response = await new Promise((resolve, reject) => {
-                const query = "DELETE FROM School WHERE SchoolId = (?)";
+                const query = "DELETE FROM School WHERE SchoolId = (?);";
     
                 connection.query(query, [id] , (err, result) => {
                     if (err) {
@@ -168,7 +168,7 @@ class DbService {
         try {
             id = parseInt(id, 10); 
             const response = await new Promise((resolve, reject) => {
-                const query = "DELETE FROM Teacher WHERE TeacherId = (?)";
+                const query = "DELETE FROM Teacher WHERE TeacherId = (?);";
 
                 connection.query(query, [id] , (err, result) => {
                     if (err) {
@@ -194,7 +194,7 @@ class DbService {
         try {
             id = parseInt(id, 10); 
             const response = await new Promise((resolve, reject) => {
-                const query = "DELETE FROM Class WHERE ClassId = (?)";
+                const query = "DELETE FROM Class WHERE ClassId = (?);";
     
                 connection.query(query, [id] , (err, result) => {
                     if (err) {
@@ -221,7 +221,7 @@ class DbService {
         try {
             id = parseInt(id, 10); 
             const response = await new Promise((resolve, reject) => {
-                const query = "DELETE FROM Student WHERE StudentId = (?)";
+                const query = "DELETE FROM Student WHERE StudentId = (?);";
     
                 connection.query(query, [id] , (err, result) => {
                     if (err) {
@@ -245,6 +245,10 @@ class DbService {
     }
 
     async editSchoolById() {
+        
+    }
+
+    async editStudentById() {
         
     }
 }
