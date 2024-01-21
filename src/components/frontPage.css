@@ -4,7 +4,7 @@
 }
 
 body {
- background: linear-gradient(to left, #3498db, #9b59b6);
+ background: linear-gradient(to bottom, #3498db, #9b59b6);
 }
 
 .logo {
@@ -71,6 +71,8 @@ body {
  border: none;
  border-radius: 20px;
  cursor: pointer;
+ transition: all 0.3s linear;
+ text-transform: uppercase;
 }
 
 .logInBox button:hover {
