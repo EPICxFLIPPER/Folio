@@ -67,6 +67,15 @@ const names = ["1", "2", "3", "4", "5", "6",
      {/* <div className="pfp"></div> */}
      <div><h2 className="name">name</h2>
      </div>
+     <div className="addStudent">
+      <div className="addStudentTextBox">
+      <label for="studentName">Student name:</label>
+      <input type="name" id="studentName" name="studentName" required></input>
+      </div>
+     <div className="addStudentBtn">
+      <button>add student</button>
+     </div>
+     </div>
      </div>
      {/* start of class list */}
      <div className="classList">
