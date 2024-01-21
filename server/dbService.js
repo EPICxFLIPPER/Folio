@@ -57,8 +57,25 @@ class DbService {
         }
     }
 
-    async insertNewSchool(name) {
-        //STUB
+    async insertNewName(name) {
+        try {
+            const dateAdded = new Date();
+            const insertId = await new Promise((resolve, reject) => {
+                const query = "INSERT INTO names (name, date_added) VALUES (?,?);";
+
+                connection.query(query, [name, dateAdded] , (err, result) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(result.insertId);
+                })
+            });
+            return {
+                id : insertId,
+                name : name,
+                dateAdded : dateAdded
+            };
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
