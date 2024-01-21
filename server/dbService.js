@@ -49,7 +49,7 @@ class DbService {
                     resolve(results);
                 })
             });
-            console.log(response);
+            //console.log(response);
             return response;
 
         } catch (error) {
@@ -57,6 +57,7 @@ class DbService {
         }
     }
 
+<<<<<<< HEAD
     async insertNewName(name) {
         try {
             const dateAdded = new Date();
@@ -76,6 +77,10 @@ class DbService {
         } catch (error) {
             console.log(error);
         }
+=======
+    async insertNewSchool(name) {
+        //
+>>>>>>> 1fc095511b2176f1bc0caca2204df59d6737a8d2
     }
 }
 
