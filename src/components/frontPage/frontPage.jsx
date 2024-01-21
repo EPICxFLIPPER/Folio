@@ -1,9 +1,9 @@
 import React from "react";
-import "./frontPage.css" ;
+import "./frontPage.css";
 
 const frontPage = () => {
  return (
-  <div className>
+  <div>
    {/* start of logo */}
    <div className="logo"> 
    </div>

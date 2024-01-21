@@ -67,7 +67,7 @@ body {
  height: 80px;
  display: flex;
  justify-content: space-between;
- padding: 0 140px;
+ padding: 0 182px;
  align-items: center;
 }
 
@@ -76,6 +76,54 @@ body {
  background-color: white;
  border-radius: 100%;
 } */
+
+.addStudent {
+ /* border: 2px solid red; */
+ display: flex;
+ width: 700px;
+ justify-content: space-between;
+ align-items: center;
+ margin-left: 200px;
+ margin-top: 20px;
+}
+
+.addStudentTextBox label {
+ color: white;
+ margin-right: 30px;
+ margin-top: 10px;
+ font-size: 20px;
+}
+
+.addStudentTextBox input {
+ margin-top: 10px;
+ width: 20rem;
+ height: 2rem;
+ padding: 8px;
+ margin-bottom: 16px;
+ box-sizing: border-box;
+ border: 2px solid white;
+ border-radius: 20px;
+}
+
+.addStudentBtn {
+ height: 80px;
+ width: 200px;
+}
+
+.addStudentBtn button {
+ color: white;
+ background-color: #6140c7;
+ height: 80px;
+ width: 200px;
+ font-size: 20px;
+ border-radius: 8px;
+}
+
+.addStudentBtn button:hover {
+ color: #6140c7;
+ background-color: white;
+
+}
 
 .profile h2 {
  color: white;
