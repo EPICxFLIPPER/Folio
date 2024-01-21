@@ -144,9 +144,17 @@ class DbService {
                 const query = "DELETE FROM School WHERE SchoolId = (?)";
     
                 connection.query(query, [id] , (err, result) => {
-                    if (err) reject(new Error(err.message));
-                    resolve(result.affectedRows);
-                })
+                    if (err) {
+                        if (err === 'ER_ROW_IS_REFERENCED_2') {
+                            console.error("Cannot delete School due to foreign key constraint");
+                            resolve(0);
+                        } else {
+                            reject(new Error(err.message));
+                        }
+                    } else {
+                        resolve(result.affectedRows || 0);
+                    }
+                });
             });
     
             return response === 1 ? true : false;
@@ -189,9 +197,17 @@ class DbService {
                 const query = "DELETE FROM Class WHERE ClassId = (?)";
     
                 connection.query(query, [id] , (err, result) => {
-                    if (err) reject(new Error(err.message));
-                    resolve(result.affectedRows);
-                })
+                    if (err) {
+                        if (err === 'ER_ROW_IS_REFERENCED_2') {
+                            console.error("Cannot delete Class due to foreign key constraint");
+                            resolve(0);
+                        } else {
+                            reject(new Error(err.message));
+                        }
+                    } else {
+                        resolve(result.affectedRows || 0);
+                    }
+                });
             });
     
             return response === 1 ? true : false;
@@ -208,9 +224,17 @@ class DbService {
                 const query = "DELETE FROM Student WHERE StudentId = (?)";
     
                 connection.query(query, [id] , (err, result) => {
-                    if (err) reject(new Error(err.message));
-                    resolve(result.affectedRows);
-                })
+                    if (err) {
+                        if (err === 'ER_ROW_IS_REFERENCED_2') {
+                            console.error("Cannot delete Student due to foreign key constraint");
+                            resolve(0);
+                        } else {
+                            reject(new Error(err.message));
+                        }
+                    } else {
+                        resolve(result.affectedRows || 0);
+                    }
+                });
             });
     
             return response === 1 ? true : false;
