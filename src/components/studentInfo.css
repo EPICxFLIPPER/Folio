@@ -1,7 +1,7 @@
-
+/* 
 body {
     background: linear-gradient(to bottom, #3677d7, #300b94);
-   } 
+   }  */
 
 body {
     margin: 0;
@@ -11,7 +11,7 @@ body {
     height: 100vh;
   }
   
-  .center {
+  .studentInfoCenter {
     background-color: #ffffff; /* White background color */
     border-radius: 40px; /* Rounded corners */
     padding: 20px; /* Adjust padding as needed */

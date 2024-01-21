@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./classView.css";
-import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ClassView = () => {
 const[names, setNames] = useState([]); 
-const[student, setStudent] = useState("Steve");
+const[student, setStudent] = useState("");
+const navigate = useNavigate();
 
 const addStudent = function () {
 
@@ -22,8 +24,6 @@ const addStudent = function () {
 useEffect(() => {
   axios.get("http://localhost:5001/getStudent")
   .then((res) => {
-    console.log(res);
-    console.log(res.data);
     setNames(res.data.data);
   });
 } ,[])
@@ -49,7 +49,7 @@ for (let j = counter; j < 30; j++) {
 
 const handleButtonClick = (id) => {
   console.log(`Button clicked for ${id}`);
-  
+  navigate(`/studentinfo/${id}`);
 }
  return (
   <div className>
@@ -57,9 +57,7 @@ const handleButtonClick = (id) => {
        <div className="students">
         {/* start of row 1 */}
         <div className="row">
-        <Link className="toStudentInfoLink" to="studentinfo"> 
-         <div className="studentBtn"><button onClick={() => handleButtonClick(names[0].StudentId)}> {studentNames[0]} 
-         </button></div> </Link>
+         <div className="studentBtn"><button onClick={() => handleButtonClick(names[0].StudentId)}> {studentNames[0]}</button></div>
          <div className="studentBtn"><button onClick={() => handleButtonClick(names[1].StudentId)}> {studentNames[1]}</button></div>
          <div className="studentBtn"><button onClick={() => handleButtonClick(names[2].StudentId)}> {studentNames[2]}</button></div>
          <div className="studentBtn"><button onClick={() => handleButtonClick(names[3].StudentId)}> {studentNames[3]}</button></div>
@@ -110,7 +108,7 @@ const handleButtonClick = (id) => {
     {/* start of profile */}
     <div className="profile">
      {/* <div className="pfp"></div> */}
-     <div><h2 className="name">name</h2>
+     <div><h2 className="name"></h2>
      </div>
      <div className="addStudent">
       <div className="addStudentTextBox">
@@ -124,17 +122,19 @@ const handleButtonClick = (id) => {
      </div>
      {/* start of class list */}
      <div className="classList">
-      <div className="classBtn"><button>class</button></div>
-      <div className="classBtn"><button>class</button></div>
-      <div className="classBtn"><button>class</button></div>
-      <div className="classBtn"><button>class</button></div>
+      <div className="classBtn"><button>Add a Class!</button></div>
+      <div className="classBtn"><button>Add a Class!</button></div>
+      <div className="classBtn"><button>Add a Class!</button></div>
+      <div className="classBtn"><button>Add a Class!</button></div>
      </div>
      {/* start of logout button */}
+    <Link className="returnLink" to="/">
      <div className="logoutBtn">
      <button type="submit">
        <p className="logOutText">Log out</p>
       </button>
      </div>
+     </Link>
     </div>
        {/* end of side bar */}
   </div>
