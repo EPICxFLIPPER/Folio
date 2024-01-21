@@ -3,12 +3,22 @@ const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
+const { auth } = require('express-openid-connect');
 
 const dbService = require('./dbService');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
+
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: 'a long, randomly-generated string stored in env',
+    baseURL: 'http://localhost:3000',
+    clientID: 'V4Ip60ff775hiXI9WOkUI5W1KA83jeWo',
+    issuerBaseURL: 'https://dev-3azt527x0nbmi8cn.us.auth0.com'
+  };
 
 //Create
 app.post('/insert/school', (request, response) => {

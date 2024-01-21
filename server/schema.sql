@@ -47,3 +47,70 @@ DROP CONSTRAINT student_ibfk_1;
 
 ALTER TABLE Student
 DROP COLUMN TeacherId;
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("James", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Jaymes", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Alec", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Alex", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Mark", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Matthew", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Karen", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Olga", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Kevin", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Kathy", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Cathy", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Kory", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Cory", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Patricia", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Herald", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Sonia", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Gertrude", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Theo", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Elli", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Leo", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Nico", 18);
+
+INSERT INTO Student(Name, ClassId) 
+VALUES ("Percy", 18);
+

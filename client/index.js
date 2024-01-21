@@ -111,7 +111,7 @@ addSchoolBtn.onclick = function () {
     schoolNameInput.value = "";
     
 
-    fetch('http://localhost:5001/insert/school', {
+    fetch('http://localhost:5001/insert/school', {  
         headers: {
             'Content-type': 'application/json'
         },
