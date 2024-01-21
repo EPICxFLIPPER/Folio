@@ -110,9 +110,18 @@ app.patch('/update', (request, response) => {
     //Stub
 });
 
+
+
 //Delete
-app.delete('/delete/:id', (request, response) => {
-    //Stub
+app.delete('/delete/school/:id', (request, response) => {
+    const { id } = request.params;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.deleteSchoolById(id);
+    
+    result
+    .then(data => response.json({success : data}))
+    .catch(err => console.log(err));
 });
 
 app.listen(process.env.PORT, () => console.log('app is running'));
