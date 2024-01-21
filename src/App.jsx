@@ -5,12 +5,20 @@ import ClassView from "./components/classView"; // Capitalized the component nam
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<ClassView />} />
-        <Route path="/studentInfo/:StudentId" component={StudentInfo} />
-      </Routes>
-    </Router>
+    // <Router>
+    //   <Routes>
+    //     <Route path="/" element={<ClassView />} />
+    //     <Route path="/studentInfo/:StudentId" component={StudentInfo} />
+    //   </Routes>
+    // </Router>
+
+  <Router> 
+    <Routes>
+      <Route path="/" element={<ClassView/>}/>
+      <Route path="studentinfo" element={<StudentInfo/>} />
+    </Routes>
+  </Router>
+    
   // //   <StudentInfo />
   //   <ClassView/>
   //   // <FrontPage/>
