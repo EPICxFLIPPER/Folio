@@ -49,7 +49,7 @@ class DbService {
                     resolve(results);
                 })
             });
-            console.log(response);
+            //console.log(response);
             return response;
 
         } catch (error) {
@@ -58,7 +58,7 @@ class DbService {
     }
 
     async insertNewSchool(name) {
-        //STUB
+        //
     }
 }
 

@@ -23,8 +23,6 @@ app.post('/insert/school', (request, response) => {
 });
 
 
-
-
 //Read
 app.get('/getAll', (request, response) => {
     const db = dbService.getDbServiceInstance();

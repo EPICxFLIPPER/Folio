@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('http://localhost:5001/getAll')
     .then(response => response.json())
     .then(data => loadHTMLTables(data['data']));
-    
-
 });
 
 function loadHTMLTables(data) {
@@ -27,7 +25,7 @@ addBtn.onclick = function () {
     const schoolNameInput = document.querySelector('#school-name-input'); //TODO 
     const name = schoolNameInput.value;
     schoolNameInput.value = "";
-    console.log(name);
+    //console.log(name);
 
     fetch('http://localhost:5001/insert/school', {
         headers: {
@@ -42,31 +40,7 @@ addBtn.onclick = function () {
 
 function insertRowIntoTable(data) {
     console.log(data);
-    const table = document.querySelector('table tbody');
-    const isTableData = table.querySelector('.no-data');
-
-    let tableHtml = "<tr>";
-
-    for (var key in data) {
-        if (data.hasOwnProperty(key)) {
-            if (key === 'dateAdded') {
-                data[key] = new Date(data[key]).toLocaleString();
-            }
-            tableHtml += `<td>${data[key]}</td>`;
-        }
-    }
-
-    tableHtml += `<td><button class="delete-row-btn" data-id=${data.id}>Delete</td>`;
-    tableHtml += `<td><button class="edit-row-btn" data-id=${data.id}>Edit</td>`;
-
-    tableHtml += "</tr>";
-
-    if (isTableData) {
-        table.innerHTML = tableHtml;
-    } else {
-        const newRow = table.insertRow();
-        newRow.innerHTML = tableHtml;
-    }
+    
 }
 
 
