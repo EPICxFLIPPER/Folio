@@ -87,6 +87,18 @@ app.get('/getStudent', (request, response) => {
 });
 
 //Read
+app.get('/getStudent/:id', (request, response) => {
+    const { id } = request.params;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.getStudentById(id);
+    
+    result
+    .then(data => response.json({success : data}))
+    .catch(err => console.log(err));
+});
+
+//Read
 app.get('/getClass', (request, response) => {
     const db = dbService.getDbServiceInstance();
 
