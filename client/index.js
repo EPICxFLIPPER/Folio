@@ -22,15 +22,45 @@ function loadStudentHTMLTable(data) {
 
     if (data.length === 0) {
         studentTable.innerHTML = "<tr><td class='no-data' colspan='7'>No Data</td></tr>"
-    }   
+    } else {
+        let tableHtml = ""; 
+        data.forEach(function ({AcademicPerformance, ClassId, Name, StrongSubject, StudentId, WeakestSubject, absent}) {
+            tableHtml += "<tr>";
+            tableHtml += `<td>${StudentId}</td>`;
+            tableHtml += `<td>${Name}</td>`;
+            tableHtml += `<td>${AcademicPerformance}</td>`;
+            tableHtml += `<td>${WeakestSubject}</td>`;
+            tableHtml += `<td>${StrongSubject}</td>`;
+            tableHtml += `<td>${absent}</td>`;
+            tableHtml += `<td>${ClassId}</td>`;
+            tableHtml += `<td><button class="delete-row-btn" data-id=${StudentId}>Delete</td>`;
+            tableHtml += `<td><button class="edit-row-btn" data-id=${StudentId}>Edit</td>`;
+            tableHtml += "</tr>";
+        });
+        studentTable.innerHTML = tableHtml;
+    }
+    
 }
 
 function loadTeacherHTMLTable(data) {
     const teacherTable = document.querySelector('#teacher-table #teacher-body');
+    console.log(data);
 
     if (data.length === 0) {
         teacherTable.innerHTML = "<tr><td class='no-data' colspan='3'>No Data</td></tr>"
-    }   
+    } else {
+        let tableHtml = ""; 
+        data.forEach(function ({Name, SchoolId, TeacherId}) {
+            tableHtml += "<tr>";
+            tableHtml += `<td>${Name}</td>`;
+            tableHtml += `<td>${SchoolId}</td>`;
+            tableHtml += `<td>${TeacherId}</td>`;
+            tableHtml += `<td><button class="delete-row-btn" data-id=${TeacherId}>Delete</td>`;
+            tableHtml += `<td><button class="edit-row-btn" data-id=${TeacherId}>Edit</td>`;
+            tableHtml += "</tr>";
+        });
+        teacherTable.innerHTML = tableHtml;
+    }
 }
 
 function loadSchoolHTMLTable(data) {
@@ -46,7 +76,9 @@ function loadClassHTMLTable(data) {
 
     if (data.length === 0) {
         classTable.innerHTML = "<tr><td class='no-data' colspan='2'>No Data</td></tr>"
-    }   
+    } else {
+
+    }
 }
 
 const addSchoolBtn = document.querySelector('#add-school-btn');
