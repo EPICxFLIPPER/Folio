@@ -19,7 +19,6 @@ function loadHTMLTables(data) {
     }   
 }
 
-
 const addSchoolBtn = document.querySelector('#add-school-btn');
 const addTeacherBtn = document.querySelector('#add-teacher-btn'); 
 const addClassBtn = document.querySelector('#add-class-btn'); 
@@ -75,6 +74,27 @@ addClassBtn.onclick = function () {
         },
         method: 'POST',
         body: JSON.stringify({ teacherId : teacherId})
+    })
+    .then(response => response.json())
+    .then(data => insertRowIntoTable(data['data']));
+}
+
+
+addStudentBtn.onclick = function () {
+    const studentName = document.querySelector('#student-name-input');
+    const studentClassId = document.querySelector('#student-classId-input');
+    const name = studentName.value;
+    const classId = studentClassId.value;
+    studentName.value = "";
+    studentClassId.value = "";
+    
+
+    fetch('http://localhost:5001/insert/student', {
+        headers: {
+            'Content-type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({ name : name, classId : classId})
     })
     .then(response => response.json())
     .then(data => insertRowIntoTable(data['data']));
