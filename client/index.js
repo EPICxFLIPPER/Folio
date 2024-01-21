@@ -1,20 +1,50 @@
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('http://localhost:5001/getAll')
+    fetch('http://localhost:5001/getStudent')
     .then(response => response.json())
-    .then(data => loadHTMLTables(data['data']));
+    .then(data => loadStudentHTMLTable(data['data']));
+
+    fetch('http://localhost:5001/getClass')
+    .then(response => response.json())
+    .then(data => loadClassHTMLTable(data['data']));
+
+    fetch('http://localhost:5001/getTeacher')
+    .then(response => response.json())
+    .then(data => loadTeacherHTMLTable(data['data']));
+
+    fetch('http://localhost:5001/getSchool')
+    .then(response => response.json())
+    .then(data => loadSchoolHTMLTable(data['data']));
 });
 
-//Effects: Loads the tables: FRONT END, DELETE LATER
-function loadHTMLTables(data) {
-    const schoolTable = document.querySelector('#school-table #school-body');
-    const teacherTable = document.querySelector('#teacher-table #teacher-body');
+
+function loadStudentHTMLTable(data) {
     const studentTable = document.querySelector('#student-table #student-body');
-    const classTable = document.querySelector('#class-table #class-body');
+
+    if (data.length === 0) {
+        studentTable.innerHTML = "<tr><td class='no-data' colspan='7'>No Data</td></tr>"
+    }   
+}
+
+function loadTeacherHTMLTable(data) {
+    const teacherTable = document.querySelector('#teacher-table #teacher-body');
+
+    if (data.length === 0) {
+        teacherTable.innerHTML = "<tr><td class='no-data' colspan='3'>No Data</td></tr>"
+    }   
+}
+
+function loadSchoolHTMLTable(data) {
+    const schoolTable = document.querySelector('#school-table #school-body');
 
     if (data.length === 0) {
         schoolTable.innerHTML = "<tr><td class='no-data' colspan='2'>No Data</td></tr>"
-        teacherTable.innerHTML = "<tr><td class='no-data' colspan='3'>No Data</td></tr>"
-        studentTable.innerHTML = "<tr><td class='no-data' colspan='7'>No Data</td></tr>"
+    }   
+}
+
+function loadClassHTMLTable(data) {
+    const classTable = document.querySelector('#class-table #class-body');
+
+    if (data.length === 0) {
         classTable.innerHTML = "<tr><td class='no-data' colspan='2'>No Data</td></tr>"
     }   
 }

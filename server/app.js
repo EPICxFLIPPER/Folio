@@ -67,6 +67,42 @@ app.get('/getAll', (request, response) => {
     result.then(data => response.json({data : data})).catch(err => console.log(err));
 });
 
+//Read
+app.get('/getStudent', (request, response) => {
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.getData("SELECT * FROM Student;");
+
+    result.then(data => response.json({data : data})).catch(err => console.log(err));
+});
+
+//Read
+app.get('/getClass', (request, response) => {
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.getData("SELECT * FROM Class;");
+
+    result.then(data => response.json({data : data})).catch(err => console.log(err));
+});
+
+//Read
+app.get('/getTeacher', (request, response) => {
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.getData("SELECT * FROM Teacher;");
+
+    result.then(data => response.json({data : data})).catch(err => console.log(err));
+});
+
+//Read
+app.get('/getSchool', (request, response) => {
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.getData("SELECT * FROM School;");
+
+    result.then(data => response.json({data : data})).catch(err => console.log(err));
+});
+
 
 
 //Update
